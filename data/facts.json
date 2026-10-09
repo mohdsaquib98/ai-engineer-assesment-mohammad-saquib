@@ -123,5 +123,10 @@
     "id": 25,
     "title": "Earth's Atmosphere",
     "text": "Earth's atmosphere is about 78% nitrogen, 21% oxygen, and 1% other gases, extending about 480 kilometers above the surface."
+  },
+  {
+    "id": 26,
+    "title": "Why the Sky Is Blue",
+    "text": "The sky appears blue because of Rayleigh scattering. Molecules in Earth's atmosphere scatter shorter wavelengths of sunlight, such as blue and violet, more strongly than longer wavelengths such as red. Human eyes are more sensitive to blue light, and some violet light is absorbed in the upper atmosphere, so the sky appears blue during the day."
   }
 ]
