@@ -59,3 +59,11 @@ Response:
 pip install -r requirements-dev.txt
 pytest
 ```
+
+## Validation & error handling
+
+- Request validation: questions must be 2-1000 characters, non-empty
+- Pre-LLM checks: rejects invalid questions before calling Groq
+- Pre-tool checks: validates tool arguments before execution
+- Superhero API: handles timeouts, HTTP errors, and "not found" with a circuit breaker
+- Errors return structured responses (422 for validation, 502 for upstream failures, 500 for unexpected errors)
