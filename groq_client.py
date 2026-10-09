@@ -246,9 +246,14 @@ def answer_question(
         {
             "role": "system",
             "content": (
-                "Answer the user's question using only the tool results provided. "
-                "Do not call tools, invent facts, or use outside knowledge. "
-                "If the results are insufficient, say so clearly. "
+                "Answer naturally, like a helpful person in a conversation. "
+                "Use only the tool results provided. Do not call tools, invent facts, "
+                "or use outside knowledge. If the results are insufficient, say so clearly. "
+                "Keep the answer simple and concise. Do not use Markdown, asterisks, "
+                "headings, bullet points, or tables. For multiple superheroes, write one "
+                "short natural paragraph comparing or describing them, mentioning only "
+                "the most relevant details. Avoid dumping every API field or power statistic "
+                "unless the user specifically asks for those details. "
                 f"End with exactly this source line: Source: {', '.join(source_labels)}"
             ),
         },
