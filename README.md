@@ -1,6 +1,8 @@
 # Superhero + Science Facts Chatbot
 
-A FastAPI chatbot that answers questions about superheroes (via Superhero API) and a local dataset of science facts. Uses Groq's function-calling to route questions to the right source(s) and always cites where information came from.
+A FastAPI chatbot that answers questions about superheroes (via Superhero API) and a local dataset of science facts. Uses Groq's function-calling to route questions to the right source(s) and cites where information came from.
+
+**LLM:** Groq API with the model ID `llama-3.1-8b-instant` (configurable through `GROQ_MODEL`).
 
 ## About
 
@@ -29,7 +31,7 @@ Get API keys:
 Create `.env` (see `.env.example`):
 ```bash
 GROQ_API_KEY=your_groq_key
-GROQ_MODEL=llama-3.1-8b-instant
+GROQ_MODEL=llama-3.1-8b-instant  # Groq model ID
 SUPERHERO_API_TOKEN=your_superhero_token
 ```
 
