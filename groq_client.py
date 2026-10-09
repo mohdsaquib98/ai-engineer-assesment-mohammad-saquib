@@ -201,8 +201,8 @@ def answer_question(
     source_labels = list(dict.fromkeys(
         source_by_tool[name] for name, _ in tool_results if name in source_by_tool
     ))
-    formatted_results = "\\n\\n".join(
-        f"Tool: {name}\\nResult:\\n{result}" for name, result in tool_results
+    formatted_results = "\n\n".join(
+        f"Tool: {name}\nResult:\n{result}" for name, result in tool_results
     )
 
     synthesis_messages = [
@@ -217,7 +217,7 @@ def answer_question(
         },
         {
             "role": "user",
-            "content": f"Question: {question}\\n\\nTool results:\\n{formatted_results}",
+            "content": f"Question: {question}\n\nTool results:\n{formatted_results}",
         },
     ]
 
