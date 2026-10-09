@@ -10,7 +10,11 @@ The chatbot receives a question via `POST /ask` and:
 3. **Synthesizes answer**: Groq combines tool results into a coherent response
 4. **Tracks sources**: Returns the answer with a `tools_used` list showing what was consulted
 
-**Validation & error handling**: Questions must be 2-1000 characters. Pre-LLM and pre-tool checks catch invalid inputs early. The superhero API handles timeouts, HTTP errors, and "not found" with a circuit breaker. Errors return structured responses (422 for validation, 502 for upstream failures, 500 for unexpected errors).
+**Validation & error handling**:
+- Questions must be non-empty and at least 2 characters
+- Pre-LLM and pre-tool checks catch invalid inputs early
+- Superhero API handles timeouts, HTTP errors, and "not found" with a circuit breaker
+- Errors return structured responses (422 for validation, 502 for upstream failures, 500 for unexpected errors)
 
 ## Setup
 
