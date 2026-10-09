@@ -2,7 +2,6 @@
 
 A FastAPI chatbot that answers questions about superheroes (via Superhero API) and a local dataset of science facts. Uses Groq's function-calling to route questions to the right source(s) and cites where information came from.
 
-**LLM:** Groq API with the model ID `openai/gpt-oss-20b` (configurable through `GROQ_MODEL`). This replaces the retired `llama-3.1-8b-instant` model for free/developer-tier usage.
 
 ## About
 
@@ -58,6 +57,12 @@ Response:
   "tools_used": ["search_dataset"]
 }
 ```
+
+## Sample Screenshots
+<img width="1408" height="760" alt="Screenshot 2026-10-10 at 2 22 30 AM" src="https://github.com/user-attachments/assets/cf3e0c74-239e-4b2d-aaf6-8b81138828aa" />
+<img width="1419" height="766" alt="Screenshot 2026-10-10 at 2 21 54 AM" src="https://github.com/user-attachments/assets/c452551f-4cf9-42ac-8b57-a759687ea008" />
+<img width="1412" height="776" alt="Screenshot 2026-10-10 at 2 20 46 AM" src="https://github.com/user-attachments/assets/02421749-ae5e-4395-8731-5f6e4483f406" />
+
 
 ## Tests
 
