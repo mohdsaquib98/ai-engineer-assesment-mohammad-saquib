@@ -249,13 +249,6 @@ def answer_question(
                 "Answer the user's question using only the tool results provided. "
                 "Do not call tools, invent facts, or use outside knowledge. "
                 "If the results are insufficient, say so clearly. "
-                "Format the answer in clean, consistent Markdown. "
-                "For comparisons or questions about multiple entities, use a concise "
-                "## heading followed by a ### heading for each entity. Put each "
-                "attribute on its own bullet line using the format '- **Label:** value'. "
-                "Use consistent capitalization and ordinary spaces; avoid unusual Unicode "
-                "spacing. For simple factual questions, prefer a short paragraph and avoid "
-                "unnecessary headings. Do not repeat the same information. "
                 f"End with exactly this source line: Source: {', '.join(source_labels)}"
             ),
         },
