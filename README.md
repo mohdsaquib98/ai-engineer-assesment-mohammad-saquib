@@ -2,6 +2,16 @@
 
 A FastAPI chatbot that answers questions about superheroes (via Superhero API) and a local dataset of science facts. Uses Groq's function-calling to route questions to the right source(s) and always cites where information came from.
 
+## How it works
+
+The chatbot receives a question via `POST /ask` and:
+1. Asks Groq to decide which tool(s) to call: `search_dataset` (science facts) or `search_superhero` (superhero API)
+2. Executes the selected tool(s):
+   - `search_dataset`: TF-IDF search over `data/facts.json`
+   - `search_superhero`: HTTP call to superheroapi.com
+3. Sends the tool results back to Groq to synthesize a final answer
+4. Returns the answer with a `tools_used` list showing which sources were consulted
+
 ## Setup
 
 ```bash
