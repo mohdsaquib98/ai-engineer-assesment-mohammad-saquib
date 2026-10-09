@@ -165,6 +165,7 @@ def answer_question(
 
     tools_used: List[str] = []
     tool_results: List[Tuple[str, str]] = []
+    superhero_names_searched: List[str] = []
 
     for tool_call in tool_calls:
         tool_name = tool_call.function.name
@@ -179,6 +180,7 @@ def answer_question(
             result = _format_dataset_result(dataset, arg_value, dataset_top_k)
         elif tool_name == "search_superhero":
             result = _format_superhero_result(superhero_adapter, arg_value)
+            superhero_names_searched.append(arg_value.lower())
         else:
             result = f"Unknown tool: {tool_name}"
 
@@ -191,6 +193,25 @@ def answer_question(
             "tool_call_id": tool_call.id,
             "content": result,
         })
+
+    # Search every recognized superhero mentioned in the question, even if the
+    # router only requests one search_superhero tool call.
+    known_superhero_names = (
+        "superman", "batman", "wonder woman", "spider-man", "spiderman",
+        "iron man", "captain america", "thor", "hulk", "black widow",
+        "flash", "green lantern", "aquaman", "cyborg", "joker",
+        "harley quinn", "supergirl", "robin", "doctor strange", "black panther",
+        "deadpool", "wolverine", "ant-man", "shazam", "green arrow",
+    )
+    lower_question = question.lower()
+    for hero_name in known_superhero_names:
+        if hero_name in lower_question and hero_name not in superhero_names_searched:
+            hero_result = _format_superhero_result(superhero_adapter, hero_name)
+            hero_result = _validate_tool_output("search_superhero", hero_result)
+            superhero_names_searched.append(hero_name)
+            tool_results.append(("search_superhero", hero_result))
+            if "search_superhero" not in tools_used:
+                tools_used.append("search_superhero")
 
     # Enforce dataset retrieval for mixed superhero + science questions.
     # The LLM router can sometimes select only the superhero tool even when the
