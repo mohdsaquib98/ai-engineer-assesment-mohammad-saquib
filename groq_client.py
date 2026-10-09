@@ -192,6 +192,22 @@ def answer_question(
             "content": result,
         })
 
+    # Enforce dataset retrieval for mixed superhero + science questions.
+    # The LLM router can sometimes select only the superhero tool even when the
+    # question also asks about a science concept (e.g. "Can Batman run at light speed?").
+    lower_question = question.lower()
+    science_cues = (
+        "speed of light", "light speed", "light travel", "gravity", "photosynthesis",
+        "atmosphere", "planet", "solar system", "black hole", "earth's rotation",
+        "water", "dna", "volcano", "rainbow", "science",
+    )
+    has_science_cue = any(cue in lower_question for cue in science_cues)
+    if "search_superhero" in tools_used and "search_dataset" not in tools_used and has_science_cue:
+        dataset_result = _format_dataset_result(dataset, question, dataset_top_k)
+        dataset_result = _validate_tool_output("search_dataset", dataset_result)
+        tools_used.append("search_dataset")
+        tool_results.append(("search_dataset", dataset_result))
+
     # Start a fresh text-only conversation for synthesis. Replaying the assistant's
     # native tool-call message can cause some models to emit another tool call here.
     source_by_tool = {
