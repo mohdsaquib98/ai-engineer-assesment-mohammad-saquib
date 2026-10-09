@@ -164,6 +164,7 @@ def answer_question(
     ]})
 
     tools_used: List[str] = []
+    tool_results: List[Tuple[str, str]] = []
 
     for tool_call in tool_calls:
         tool_name = tool_call.function.name
@@ -183,6 +184,7 @@ def answer_question(
 
         result = _validate_tool_output(tool_name, result)
         tools_used.append(tool_name)
+        tool_results.append((tool_name, result))
 
         messages.append({
             "role": "tool",
@@ -190,8 +192,41 @@ def answer_question(
             "content": result,
         })
 
+    # Start a fresh text-only conversation for synthesis. Replaying the assistant's
+    # native tool-call message can cause some models to emit another tool call here.
+    source_by_tool = {
+        "search_dataset": "local science facts dataset",
+        "search_superhero": "superheroapi.com",
+    }
+    source_labels = list(dict.fromkeys(
+        source_by_tool[name] for name, _ in tool_results if name in source_by_tool
+    ))
+    formatted_results = "\\n\\n".join(
+        f"Tool: {name}\\nResult:\\n{result}" for name, result in tool_results
+    )
+
+    synthesis_messages = [
+        {
+            "role": "system",
+            "content": (
+                "Answer the user's question using only the tool results provided. "
+                "Do not call tools, invent facts, or use outside knowledge. "
+                "If the results are insufficient, say so clearly. "
+                f"End with exactly this source line: Source: {', '.join(source_labels)}"
+            ),
+        },
+        {
+            "role": "user",
+            "content": f"Question: {question}\\n\\nTool results:\\n{formatted_results}",
+        },
+    ]
+
     try:
-        final_response = client.chat.completions.create(model=model, messages=messages)
+        final_response = client.chat.completions.create(
+            model=model,
+            messages=synthesis_messages,
+            temperature=0,
+        )
     except Exception as e:
         raise LLMError(f"Groq synthesis call failed: {e}") from e
 
