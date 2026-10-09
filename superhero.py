@@ -33,7 +33,7 @@ class SuperheroAdapter:
         url = f"{self.base_url}/{self.token}/search/{name.strip()}"
 
         try:
-            with httpx.Client(timeout=self.timeout) as client:
+            with httpx.Client(timeout=self.timeout, follow_redirects=True) as client:
                 response = client.get(url)
                 response.raise_for_status()
                 data = response.json()
