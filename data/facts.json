@@ -1,0 +1,127 @@
+[
+  {
+    "id": 1,
+    "title": "Light Speed",
+    "text": "Light travels at approximately 299,792 kilometers per second in a vacuum. It takes about 8 minutes for light to travel from the Sun to Earth."
+  },
+  {
+    "id": 2,
+    "title": "Mars Atmosphere",
+    "text": "Mars has a very thin atmosphere composed mostly of carbon dioxide (95%), with traces of nitrogen and argon. The atmospheric pressure is less than 1% of Earth's."
+  },
+  {
+    "id": 3,
+    "title": "Black Holes",
+    "text": "A black hole is a region of spacetime where gravity is so strong that nothing, not even light, can escape once it passes the event horizon."
+  },
+  {
+    "id": 4,
+    "title": "Water on Earth",
+    "text": "About 71% of Earth's surface is covered by water. However, only about 2.5% of all water on Earth is freshwater, and less than 1% is easily accessible."
+  },
+  {
+    "id": 5,
+    "title": "Human DNA",
+    "text": "Human DNA is approximately 99.9% identical between any two individuals. The remaining 0.1% accounts for all genetic variation among humans."
+  },
+  {
+    "id": 6,
+    "title": "Moon Formation",
+    "text": "The Moon formed approximately 4.5 billion years ago, likely from debris after a Mars-sized body collided with early Earth."
+  },
+  {
+    "id": 7,
+    "title": "Mount Everest",
+    "text": "Mount Everest is the highest mountain on Earth at 8,849 meters above sea level. It grows about 4 millimeters per year due to tectonic activity."
+  },
+  {
+    "id": 8,
+    "title": "Ocean Depth",
+    "text": "The Mariana Trench is the deepest part of the ocean, reaching depths of approximately 11,034 meters. Pressure at the bottom is over 1,000 times atmospheric pressure."
+  },
+  {
+    "id": 9,
+    "title": "Antarctica",
+    "text": "Antarctica is the coldest, driest, and windiest continent. It contains about 90% of the world's ice and 70% of its freshwater."
+  },
+  {
+    "id": 10,
+    "title": "Human Heart",
+    "text": "The human heart beats about 100,000 times per day, pumping approximately 7,500 liters of blood. It creates enough pressure to squirt blood 30 feet."
+  },
+  {
+    "id": 11,
+    "title": "Earth's Core",
+    "text": "Earth's inner core is a solid ball of iron-nickel alloy about 2,400 kilometers in diameter, with temperatures reaching 5,700 C - similar to the Sun's surface."
+  },
+  {
+    "id": 12,
+    "title": "Volcanoes",
+    "text": "There are approximately 1,500 active volcanoes on Earth. About 50 of these erupt each year, while about 20 are actively erupting at any given time."
+  },
+  {
+    "id": 13,
+    "title": "Human Brain",
+    "text": "The human brain contains about 86 billion neurons and uses about 20% of the body's total energy, despite being only 2% of body weight."
+  },
+  {
+    "id": 14,
+    "title": "Rainbow Formation",
+    "text": "Rainbows form when sunlight is refracted, reflected, and dispersed in water droplets, creating a spectrum of light with red on the outer edge and violet on the inner edge."
+  },
+  {
+    "id": 15,
+    "title": "Earth's Rotation",
+    "text": "Earth rotates on its axis once every 23 hours, 56 minutes, and 4 seconds. This rotation is gradually slowing due to tidal friction."
+  },
+  {
+    "id": 16,
+    "title": "Photosynthesis",
+    "text": "Photosynthesis converts light energy into chemical energy, producing oxygen and glucose. Plants produce about 70% of Earth's oxygen through this process."
+  },
+  {
+    "id": 17,
+    "title": "Earth's Magnetic Field",
+    "text": "Earth's magnetic field extends thousands of kilometers into space and protects the planet from solar wind and cosmic radiation."
+  },
+  {
+    "id": 18,
+    "title": "Human Lungs",
+    "text": "Human lungs contain about 300 million alveoli, providing a surface area of roughly 70 square meters for gas exchange."
+  },
+  {
+    "id": 19,
+    "title": "Tsunamis",
+    "text": "Tsunamis are giant waves caused by underwater earthquakes, volcanic eruptions, or landslides. They can travel at speeds up to 800 kilometers per hour."
+  },
+  {
+    "id": 20,
+    "title": "Auroras",
+    "text": "Auroras (Northern and Southern Lights) occur when charged particles from the solar wind interact with Earth's magnetic field and atmosphere."
+  },
+  {
+    "id": 21,
+    "title": "Desert Formation",
+    "text": "Deserts cover about one-third of Earth's land surface. They form due to atmospheric circulation patterns, mountain rain shadows, or cold ocean currents."
+  },
+  {
+    "id": 22,
+    "title": "Human Blood",
+    "text": "Human blood contains about 5 liters of fluid with red blood cells, white blood cells, platelets, and plasma. Red blood cells live about 120 days."
+  },
+  {
+    "id": 23,
+    "title": "Earth's Age",
+    "text": "Earth is approximately 4.54 billion years old, based on radiometric dating of meteorites and Earth's oldest rocks."
+  },
+  {
+    "id": 24,
+    "title": "Coral Reefs",
+    "text": "Coral reefs cover less than 0.1% of the ocean floor but support about 25% of all marine species."
+  },
+  {
+    "id": 25,
+    "title": "Earth's Atmosphere",
+    "text": "Earth's atmosphere is about 78% nitrogen, 21% oxygen, and 1% other gases, extending about 480 kilometers above the surface."
+  }
+]
