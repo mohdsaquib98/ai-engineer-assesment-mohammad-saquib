@@ -2,15 +2,15 @@
 
 A FastAPI chatbot that answers questions about superheroes (via Superhero API) and a local dataset of science facts. Uses Groq's function-calling to route questions to the right source(s) and always cites where information came from.
 
-## How it works
+## About
 
 The chatbot receives a question via `POST /ask` and:
-1. Asks Groq to decide which tool(s) to call: `search_dataset` (science facts) or `search_superhero` (superhero API)
-2. Executes the selected tool(s):
-   - `search_dataset`: TF-IDF search over `data/facts.json`
-   - `search_superhero`: HTTP call to superheroapi.com
-3. Sends the tool results back to Groq to synthesize a final answer
-4. Returns the answer with a `tools_used` list showing which sources were consulted
+1. **Routes intelligently**: Groq decides which tool(s) to call — `search_dataset` (science facts) or `search_superhero` (superhero API)
+2. **Executes tools**: TF-IDF search over `data/facts.json` or HTTP call to superheroapi.com
+3. **Synthesizes answer**: Groq combines tool results into a coherent response
+4. **Tracks sources**: Returns the answer with a `tools_used` list showing what was consulted
+
+**Validation & error handling**: Questions must be 2-1000 characters. Pre-LLM and pre-tool checks catch invalid inputs early. The superhero API handles timeouts, HTTP errors, and "not found" with a circuit breaker. Errors return structured responses (422 for validation, 502 for upstream failures, 500 for unexpected errors).
 
 ## Setup
 
@@ -59,11 +59,3 @@ Response:
 pip install -r requirements-dev.txt
 pytest
 ```
-
-## Validation & error handling
-
-- Request validation: questions must be 2-1000 characters, non-empty
-- Pre-LLM checks: rejects invalid questions before calling Groq
-- Pre-tool checks: validates tool arguments before execution
-- Superhero API: handles timeouts, HTTP errors, and "not found" with a circuit breaker
-- Errors return structured responses (422 for validation, 502 for upstream failures, 500 for unexpected errors)
