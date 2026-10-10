@@ -11,6 +11,13 @@ The chatbot receives a question via `POST /ask` and:
 3. **Synthesizes answer**: Groq combines tool results into a coherent response
 4. **Tracks sources**: Returns the answer with a `tools_used` list showing what was consulted
 
+
+## Sample Screenshots
+<img width="1408" height="760" alt="Screenshot 2026-10-10 at 2 22 30 AM" src="https://github.com/user-attachments/assets/cf3e0c74-239e-4b2d-aaf6-8b81138828aa" />
+<img width="1419" height="766" alt="Screenshot 2026-10-10 at 2 21 54 AM" src="https://github.com/user-attachments/assets/c452551f-4cf9-42ac-8b57-a759687ea008" />
+<img width="1412" height="776" alt="Screenshot 2026-10-10 at 2 20 46 AM" src="https://github.com/user-attachments/assets/02421749-ae5e-4395-8731-5f6e4483f406" />
+
+
 **Validation & error handling**:
 - Questions must be non-empty and at least 2 characters
 - Pre-LLM and pre-tool checks catch invalid inputs early
@@ -57,11 +64,6 @@ Response:
   "tools_used": ["search_dataset"]
 }
 ```
-
-## Sample Screenshots
-<img width="1408" height="760" alt="Screenshot 2026-10-10 at 2 22 30 AM" src="https://github.com/user-attachments/assets/cf3e0c74-239e-4b2d-aaf6-8b81138828aa" />
-<img width="1419" height="766" alt="Screenshot 2026-10-10 at 2 21 54 AM" src="https://github.com/user-attachments/assets/c452551f-4cf9-42ac-8b57-a759687ea008" />
-<img width="1412" height="776" alt="Screenshot 2026-10-10 at 2 20 46 AM" src="https://github.com/user-attachments/assets/02421749-ae5e-4395-8731-5f6e4483f406" />
 
 
 ## Tests
